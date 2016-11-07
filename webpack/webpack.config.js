@@ -17,7 +17,7 @@ module.exports = {
   		test: /\.jsx?$/,
   		loader: 'babel',
   		query: {
-  			'presets': ['es2015']
+  			'presets': ['es2015', 'react']
   		},
   		//只处理src目录下
   		include: paths.src
