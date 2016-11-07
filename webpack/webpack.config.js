@@ -11,5 +11,16 @@ module.exports = {
   output: {
     path: paths.dist,
     filename: 'bundle.js',
+  },
+  module: {
+  	loaders: [{
+  		test: /\.jsx?$/,
+  		loader: 'babel',
+  		query: {
+  			'presets': ['es2015']
+  		},
+  		//只处理src目录下
+  		include: paths.src
+  	}]
   }
 }
