@@ -4,6 +4,6 @@ console.log(React)
 console.log([1, 2, 3].map(n => n + 1))
 console.log(render)
 render(
-	<div>1237128367812ty637123t9y2</div>,
+	<div>啊呜啊呜啊呜</div>,
 	document.getElementById('root')
 )
