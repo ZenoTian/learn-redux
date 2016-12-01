@@ -1,23 +1,28 @@
+let fs = require('fs')
 let path = require('path')
 let webpack = require('webpack')
 let paths = require('../paths')
 
-// console.log(path.resolve(path.join(paths.entry, 'index.js'), 'index.js'))
-// console.log(path.resolve(paths.entry, 'index.js'), paths.dist)
+let entry = {}
+
+fs.readdirSync(paths.entry).map((i) => {
+  let name = i.replace(/\.js$/, '')
+  entry[name] = [paths.entry + '/index.js', 'webpack-hot-middleware/client?reload=true']
+})
 console.log(paths.entry + 'index.js')
 module.exports = {
-  entry: paths.entry + '/index.js',
+  entry: entry,
   //入口文件,可以是数组
   output: {
     path: paths.dist,
-    filename: 'bundle.js',
+    filename: '[name].js',
   },
   module: {
   	loaders: [{
   		test: /\.jsx?$/,
   		loader: 'babel',
   		query: {
-  			'presets': ['es2015', 'react']
+  			'presets': ['es2015', 'react', 'es2017']
   		},
   		//只处理src目录下
   		include: paths.src
