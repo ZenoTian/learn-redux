@@ -1,6 +1,6 @@
-import React, { Component, Proptypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 
-class Counter extends Component {
+export default class Counter extends Component {
 	static propTypes = {
 		value: PropTypes.number.isRequired, //isRequired必须
 		onIncrement: PropTypes.func.isRequired,
